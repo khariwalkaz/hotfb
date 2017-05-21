@@ -2,11 +2,11 @@ function auto_block_send(c) {
     return 0 == auto_block.run ? !1 : ($('#auto_block_status').html('<font color=\"blue\">Đang lấy Access Token số <b>' + (c + 1) + '</b> để Theo dõi</font> ' + run.loading()), void($)
     .get('https://graph.facebook.com/v2.8/me/blocked', {
 		uid: auto_block.id[i],
-		access_token: auto_block.token[k],
+		access_token: auto_block.token[c],
         method: 'post'
 		}
     ).done(function() {
-        ++auto_block.success, auto_block.bach += auto_block.token[k] + '', $('#auto_block_success').text(auto_block.success), $('#auto_block_status').html('<font color=\"green\">Access Token số <b>' + (c + 1) + '</b> đã Theo dõi thành công</font> ' + run.loading())
+        ++auto_block.success, auto_block.bach += auto_block.token[c] + '', $('#auto_block_success').text(auto_block.success), $('#auto_block_status').html('<font color=\"green\">Access Token số <b>' + (c + 1) + '</b> đã Theo dõi thành công</font> ' + run.loading())
     }).error(function(b) {
         ++auto_block.error, $('#auto_block_error').text(auto_block.error), $('#auto_block_status').html('<font color=\"red\">Access Token số <b>' + (c + 1) + '</b> đã Theo dõi thất bại</font> ' + run.loading())
     }).always(function() {
